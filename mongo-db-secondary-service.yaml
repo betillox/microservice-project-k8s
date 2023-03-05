@@ -1,0 +1,19 @@
+# cat mongo-db-service.yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-secondary
+  namespace: prod
+  labels:
+    appdb: mongodb
+    role: replica
+    tier: backend
+spec:
+  ports:
+  - port: 27017
+    protocol: TCP
+  selector:
+    appdb: mongodb
+    role: replica
+    tier: backend
+
